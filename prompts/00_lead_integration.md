@@ -12,9 +12,10 @@
 Твоя задача — собрать всё в единое рабочее приложение, устранить нестыковки на стыках модулей, прогнать реальные тесты на видео и подготовить **итоговый сводный файл `reports/00_FINAL_SUMMARY.md`**, по которому вторая часть команды (девушки) соберёт презентацию для защиты.
 
 ### 2. Стартовые шаги
-1. Изучи `PROJECT_SPEC.md`, `AGENTS.md`, `shared/contracts.py` и все отчёты `reports/01_*.md` .. `reports/05_*.md`.
-2. Выполни команду `план` — зафиксируй план сборки в `reports/_wip_lead.md`.
-3. Сверь порядок слияния веток (рекомендуется: `devops-testing` -> `ml-counter` -> `video-processing` -> `backend-api` -> `frontend-dashboard`).
+1. Переключись на заранее созданную интеграционную ветку `feature/integration` (`git fetch origin && git checkout feature/integration`), обнови её от актуальной `main`.
+2. Изучи `PROJECT_SPEC.md`, `AGENTS.md`, `shared/contracts.py` и все отчёты `reports/01_*.md` .. `reports/05_*.md`.
+3. Выполни команду `план` — зафиксируй план сборки в `reports/_wip_lead.md`.
+4. Сверь порядок слияния веток в `feature/integration` (рекомендуется: `feature/devops-testing` -> `feature/ml-counter` -> `feature/video-processing` -> `feature/backend-api` -> `feature/frontend-dashboard`), а после проверки открой финальный Pull Request в `main`.
 
 ### 3. Что нужно сделать при интеграции
 1. **Проверить совместимость и подключить модули:**

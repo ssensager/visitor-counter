@@ -9,7 +9,7 @@
 
 ### 1. Первые обязательные шаги
 1. Изучи `PROJECT_SPEC.md`, `AGENTS.md`, `shared/contracts.py` и `shared/mock_counter.py`.
-2. Проверь текущую ветку Git. Если ты на `main`, создай и переключись на ветку `feature/video-processing`.
+2. Проверь текущую ветку Git (`git branch --show-current`). Если ты на `main`, немедленно переключись на заранее созданную ветку `feature/video-processing` (`git fetch origin && git checkout feature/video-processing`). В `main` работать и пушить запрещено.
 3. Выполни стартовый протокол `план` (смотри `.agents/skills/session-plan/SKILL.md` и `AGENTS.md`) — запиши план работы в `reports/_wip_video.md`.
 
 ### 2. Твоя зона ответственности и границы

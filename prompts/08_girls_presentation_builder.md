@@ -21,7 +21,7 @@
 
 ### 2. Стартовые шаги
 1. Изучи `PROJECT_SPEC.md`, `reports/pres_part1_context.md`, `reports/pres_part2_tech.md`, `reports/00_FINAL_SUMMARY.md` и список файлов в `reports/assets/`.
-2. Если работаешь в репозитории через Git: создай ветку `feature/presentation-final` от `main`.
+2. Если работаешь в репозитории через Git: переключись на заранее созданную ветку `feature/presentation-final` (`git fetch origin && git checkout feature/presentation-final`), в `main` не работай.
 3. При работе с агентом используй `план` / `чекпоинт` / `финал` (`reports/_wip_pres_final.md`).
 
 ### 3. Рекомендуемая структура презентации (10 слайдов)
