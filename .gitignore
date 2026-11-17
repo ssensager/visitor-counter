@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Environment variables
+.env
+
+# Models & heavy weights (download automatically or store locally)
+models/*.pt
+models/*.onnx
+models/*.engine
+*.pt
+
+# Media, uploads, results & test videos
+storage/uploads/*
+storage/results/*
+storage/test_videos/*.mp4
+storage/test_videos/*.avi
+storage/test_videos/*.mkv
+storage/test_videos/*.mov
+!storage/**/.gitkeep
+
+# Logs & temporary files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
