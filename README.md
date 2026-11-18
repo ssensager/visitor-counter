@@ -13,28 +13,28 @@
 
 ---
 
-## Команда, ветки и промпты
+## Роли, ветки и промпты
 
-### Программисты (реализация до субботы)
-| Участник | Роль | Ветка (уже создана) | Твоя папка | Промпт для ИИ | Итоговый отчёт |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Поташов Павел** | **Тимлид / ML Engineer** | `feature/ml-counter` | `ml/` | [`prompts/01_ml_counter.md`](./prompts/01_ml_counter.md) | `reports/01_ml.md` |
-| **Георгадзе Роман** | **Video Processing** | `feature/video-processing` | `video/` | [`prompts/02_video_processing.md`](./prompts/02_video_processing.md) | `reports/02_video.md` |
-| **Сурин Ярослав** | **Backend Developer** | `feature/backend-api` | `backend/` | [`prompts/03_backend_api.md`](./prompts/03_backend_api.md) | `reports/03_backend.md` |
-| **Константинов Артемий** | **Frontend Developer** | `feature/frontend-dashboard` | `frontend/` | [`prompts/04_frontend_dashboard.md`](./prompts/04_frontend_dashboard.md) | `reports/04_frontend.md` |
-| **Андреев Александр** | **DevOps & QA** | `feature/devops-testing` | `tests/`, скрипты, `requirements.txt` | [`prompts/05_devops_qa.md`](./prompts/05_devops_qa.md) | `reports/05_devops_qa.md` |
-
-### Финальная сборка прототипа (после PR от программистов)
-| Участник | Этап | Ветка (уже создана) | Промпт для ИИ | Итоговый отчёт |
+### Программисты (5 веток)
+| Роль | Ветка (уже создана) | Твоя папка | Промпт для ИИ | Итоговый отчёт |
 | :--- | :--- | :--- | :--- | :--- |
-| **Поташов Павел** | **Сборка и замеры точности на 3+ видео** | `feature/integration` | [`prompts/00_lead_integration.md`](./prompts/00_lead_integration.md) | `reports/00_FINAL_SUMMARY.md` |
+| **ML Engineer (Тимлид)** | `feature/ml-counter` | `ml/` | [`prompts/01_ml_counter.md`](./prompts/01_ml_counter.md) | `reports/01_ml.md` |
+| **Video Processing** | `feature/video-processing` | `video/` | [`prompts/02_video_processing.md`](./prompts/02_video_processing.md) | `reports/02_video.md` |
+| **Backend Developer** | `feature/backend-api` | `backend/` | [`prompts/03_backend_api.md`](./prompts/03_backend_api.md) | `reports/03_backend.md` |
+| **Frontend Developer** | `feature/frontend-dashboard` | `frontend/` | [`prompts/04_frontend_dashboard.md`](./prompts/04_frontend_dashboard.md) | `reports/04_frontend.md` |
+| **DevOps & QA** | `feature/devops-testing` | `tests/`, скрипты, `requirements.txt` | [`prompts/05_devops_qa.md`](./prompts/05_devops_qa.md) | `reports/05_devops_qa.md` |
+
+### Финальная сборка прототипа (Тимлид, после PR от программистов)
+| Этап | Ветка (уже создана) | Промпт для ИИ | Итоговый отчёт |
+| :--- | :--- | :--- | :--- |
+| **Сборка и замеры точности на 3+ видео** | `feature/integration` | [`prompts/00_lead_integration.md`](./prompts/00_lead_integration.md) | `reports/00_FINAL_SUMMARY.md` |
 
 ### Паспорт проекта и презентация (девушки)
-| Участник | Роль | Ветка (уже создана) | Когда начинать | Промпт для ИИ | Результат |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Кузьмина Анна** | **Аналитика и паспорт проекта (актуальность, проблема, цели, аналоги)** | `feature/presentation-context` | **Сразу** | [`prompts/06_girls_analytics_context.md`](./prompts/06_girls_analytics_context.md) | `reports/pres_part1_context.md` |
-| **Кожина Анастасия** | **Аналитика результатов и описание системы** | `feature/presentation-tech` | После `00_FINAL_SUMMARY.md` | [`prompts/07_girls_tech_digest.md`](./prompts/07_girls_tech_digest.md) | `reports/pres_part2_tech.md` |
-| **Кислицына Екатерина** | **Дизайн и сборка итоговой презентации** | `feature/presentation-final` | После Анны и Анастасии | [`prompts/08_girls_presentation_builder.md`](./prompts/08_girls_presentation_builder.md) | `presentation/` |
+| Роль | Ветка (уже создана) | Когда начинать | Промпт для ИИ | Результат |
+| :--- | :--- | :--- | :--- | :--- |
+| **Девушка №1: Аналитика и паспорт проекта (актуальность, проблема, цели, аналоги)** | `feature/presentation-context` | **Сразу** | [`prompts/06_girls_analytics_context.md`](./prompts/06_girls_analytics_context.md) | `reports/pres_part1_context.md` |
+| **Девушка №2: Аналитика результатов и описание системы** | `feature/presentation-tech` | После `00_FINAL_SUMMARY.md` | [`prompts/07_girls_tech_digest.md`](./prompts/07_girls_tech_digest.md) | `reports/pres_part2_tech.md` |
+| **Девушка №3: Дизайн и сборка итоговой презентации** | `feature/presentation-final` | После №1 и №2 | [`prompts/08_girls_presentation_builder.md`](./prompts/08_girls_presentation_builder.md) | `presentation/` |
 
 ---
 
@@ -54,7 +54,7 @@ git checkout <твоя-ветка>
 
 ### 2. Как задать ИИ жёсткие рамки, чтобы он делал ТОЛЬКО твою часть
 Не нужно объяснять задачу своими словами с нуля:
-1. Открой свой файл из таблицы выше в папке [`prompts/`](./prompts/README.md).
+1. Выбери свою роль и открой соответствующий файл в папке [`prompts/`](./prompts/README.md).
 2. Скопируй весь блок текста из него и отправь **первым сообщением** в чат своему ИИ-агенту.
 3. В этот промпт и в [`AGENTS.md`](./AGENTS.md) уже вшиты жёсткие рамки:
    - агент обязан сначала прочитать [`PROJECT_SPEC.md`](./PROJECT_SPEC.md) и [`shared/contracts.py`](./shared/contracts.py);
@@ -92,13 +92,13 @@ visitor-counter/
 ├── .agents/skills/        # Скиллы ИИ-агентов (/session-plan, /session-checkpoint, /finalize-report)
 ├── AGENTS.md              # Автоматические правила и границы папок для ИИ-агентов
 ├── PROJECT_SPEC.md        # Главная спецификация, архитектура и контракты
-├── prompts/               # Готовые промпты для каждого из 8 участников команды
+├── prompts/               # Готовые промпты для каждой роли
 ├── shared/                # Единые контракты типов и mock-заглушка для тестов
-├── ml/                    # [Поташов Павел] YOLOv8n + ByteTrack + виртуальная линия
-├── video/                 # [Георгадзе Роман] OpenCV-источник и цикл обработки кадров
-├── backend/               # [Сурин Ярослав] FastAPI, загрузка видео, MJPEG, WebSocket
-├── frontend/              # [Константинов Артемий] Веб-дашборд Visitor Analytics
-├── tests/                 # [Андреев Александр] Автотесты, запуск и замер точности
+├── ml/                    # [ML Engineer] YOLOv8n + ByteTrack + виртуальная линия
+├── video/                 # [Video Processing] OpenCV-источник и цикл обработки кадров
+├── backend/               # [Backend Developer] FastAPI, загрузка видео, MJPEG, WebSocket
+├── frontend/              # [Frontend Developer] Веб-дашборд Visitor Analytics
+├── tests/                 # [DevOps & QA] Автотесты, запуск и замер точности
 ├── models/                # Локальные веса моделей (.pt игнорируются в Git)
 ├── storage/               # Загруженные и тестовые видео (медиа игнорируются в Git)
 ├── reports/               # Итоговые Markdown-отчёты модулей и скриншоты

@@ -15,16 +15,16 @@
      git checkout <целевая-ветка>
      ```
      *(Если ветки почему-то нет на `origin` — создай её от актуальной `main`: `git checkout -b <целевая-ветка> main`.)*
-3. Сверь свою ветку, ответственного и разрешённую папку:
-   - `feature/ml-counter` (Поташов Павел) -> `ml/` (отчёт `reports/01_ml.md`)
-   - `feature/video-processing` (Георгадзе Роман) -> `video/` (отчёт `reports/02_video.md`)
-   - `feature/backend-api` (Сурин Ярослав) -> `backend/` (отчёт `reports/03_backend.md`)
-   - `feature/frontend-dashboard` (Константинов Артемий) -> `frontend/` (отчёт `reports/04_frontend.md`)
-   - `feature/devops-testing` (Андреев Александр) -> `tests/`, `requirements.txt`, `.env.example`, `run.bat`/`start.ps1` (отчёт `reports/05_devops_qa.md`)
-   - `feature/integration` (Поташов Павел) -> финальная сборка лидером (отчёт `reports/00_FINAL_SUMMARY.md`)
-   - `feature/presentation-context` (Кузьмина Анна) -> `reports/pres_part1_context.md`
-   - `feature/presentation-tech` (Кожина Анастасия) -> `reports/pres_part2_tech.md`
-   - `feature/presentation-final` (Кислицына Екатерина) -> `presentation/`
+3. Сверь свою ветку, роль и разрешённую папку:
+   - `feature/ml-counter` (ML Engineer / Тимлид) -> `ml/` (отчёт `reports/01_ml.md`)
+   - `feature/video-processing` (Video Processing) -> `video/` (отчёт `reports/02_video.md`)
+   - `feature/backend-api` (Backend Developer) -> `backend/` (отчёт `reports/03_backend.md`)
+   - `feature/frontend-dashboard` (Frontend Developer) -> `frontend/` (отчёт `reports/04_frontend.md`)
+   - `feature/devops-testing` (DevOps & QA) -> `tests/`, `requirements.txt`, `.env.example`, `run.bat`/`start.ps1` (отчёт `reports/05_devops_qa.md`)
+   - `feature/integration` (Тимлид / Сборка) -> финальная сборка лидером (отчёт `reports/00_FINAL_SUMMARY.md`)
+   - `feature/presentation-context` (Девушка №1) -> `reports/pres_part1_context.md`
+   - `feature/presentation-tech` (Девушка №2) -> `reports/pres_part2_tech.md`
+   - `feature/presentation-final` (Девушка №3) -> `presentation/`
 
 ---
 

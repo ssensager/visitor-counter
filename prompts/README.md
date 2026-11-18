@@ -8,28 +8,28 @@
 
 ---
 
-## Распределение промптов и веток по участникам
+## Распределение промптов и веток по ролям
 
-### Программисты (разработка модулей до субботы)
-| Участник | Файл промпта | Роль | Ветка Git (готова) | Папка | Итоговый отчёт |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Поташов Павел** | [`01_ml_counter.md`](./01_ml_counter.md) | **Тимлид / ML Engineer** | `feature/ml-counter` | `ml/` | `reports/01_ml.md` |
-| **Георгадзе Роман** | [`02_video_processing.md`](./02_video_processing.md) | **Video Processing** | `feature/video-processing` | `video/` | `reports/02_video.md` |
-| **Сурин Ярослав** | [`03_backend_api.md`](./03_backend_api.md) | **Backend Developer** | `feature/backend-api` | `backend/` | `reports/03_backend.md` |
-| **Константинов Артемий** | [`04_frontend_dashboard.md`](./04_frontend_dashboard.md) | **Frontend Developer** | `feature/frontend-dashboard` | `frontend/` | `reports/04_frontend.md` |
-| **Андреев Александр** | [`05_devops_qa.md`](./05_devops_qa.md) | **DevOps & QA** | `feature/devops-testing` | `tests/`, корень | `reports/05_devops_qa.md` |
-
-### Финальная сборка (после PR от программистов)
-| Участник | Файл промпта | Роль | Ветка Git (готова) | Итоговый отчёт |
+### Программисты (разработка модулей)
+| Файл промпта | Роль | Ветка Git (готова) | Папка | Итоговый отчёт |
 | :--- | :--- | :--- | :--- | :--- |
-| **Поташов Павел** | [`00_lead_integration.md`](./00_lead_integration.md) | **Сборка и финальные тесты** | `feature/integration` | `reports/00_FINAL_SUMMARY.md` |
+| [`01_ml_counter.md`](./01_ml_counter.md) | **ML Engineer (Тимлид)** | `feature/ml-counter` | `ml/` | `reports/01_ml.md` |
+| [`02_video_processing.md`](./02_video_processing.md) | **Video Processing** | `feature/video-processing` | `video/` | `reports/02_video.md` |
+| [`03_backend_api.md`](./03_backend_api.md) | **Backend Developer** | `feature/backend-api` | `backend/` | `reports/03_backend.md` |
+| [`04_frontend_dashboard.md`](./04_frontend_dashboard.md) | **Frontend Developer** | `feature/frontend-dashboard` | `frontend/` | `reports/04_frontend.md` |
+| [`05_devops_qa.md`](./05_devops_qa.md) | **DevOps & QA** | `feature/devops-testing` | `tests/`, корень | `reports/05_devops_qa.md` |
+
+### Финальная сборка (Тимлид, после PR от программистов)
+| Файл промпта | Роль | Ветка Git (готова) | Итоговый отчёт |
+| :--- | :--- | :--- | :--- |
+| [`00_lead_integration.md`](./00_lead_integration.md) | **Сборка и финальные тесты** | `feature/integration` | `reports/00_FINAL_SUMMARY.md` |
 
 ### Паспорт проекта и презентация (девушки)
-| Участник | Файл промпта | Роль | Когда стартует | Ветка Git (готова) | Результат |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Кузьмина Анна** | [`06_girls_analytics_context.md`](./06_girls_analytics_context.md) | **Аналитика и паспорт проекта (актуальность, проблема, цели, аналоги)** | **Сразу** (параллельно с кодом) | `feature/presentation-context` | `reports/pres_part1_context.md` |
-| **Кожина Анастасия** | [`07_girls_tech_digest.md`](./07_girls_tech_digest.md) | **Аналитика результатов и описание системы** | После `reports/00_FINAL_SUMMARY.md` | `feature/presentation-tech` | `reports/pres_part2_tech.md` |
-| **Кислицына Екатерина** | [`08_girls_presentation_builder.md`](./08_girls_presentation_builder.md) | **Дизайн и сборка итоговой презентации** | После Анны и Анастасии | `feature/presentation-final` | `presentation/` |
+| Файл промпта | Роль | Когда стартует | Ветка Git (готова) | Результат |
+| :--- | :--- | :--- | :--- | :--- |
+| [`06_girls_analytics_context.md`](./06_girls_analytics_context.md) | **Девушка №1:** Аналитика и паспорт проекта (актуальность, проблема, цели, аналоги) | **Сразу** (параллельно с кодом) | `feature/presentation-context` | `reports/pres_part1_context.md` |
+| [`07_girls_tech_digest.md`](./07_girls_tech_digest.md) | **Девушка №2:** Аналитика результатов и описание системы | После `reports/00_FINAL_SUMMARY.md` | `feature/presentation-tech` | `reports/pres_part2_tech.md` |
+| [`08_girls_presentation_builder.md`](./08_girls_presentation_builder.md) | **Девушка №3:** Дизайн и сборка итоговой презентации | После №1 и №2 | `feature/presentation-final` | `presentation/` |
 
 ---
 

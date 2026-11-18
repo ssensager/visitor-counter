@@ -143,17 +143,17 @@ Backend работает на одном хосте и порту с Frontend (`
 
 ## 4. Распределение ролей, веток и папок
 
-| № | Участник | Роль | Ветка Git | Зона редактирования | Итоговый отчёт |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | **Поташов Павел** | **Тимлид / ML Engineer** | `feature/ml-counter` | `ml/` | `reports/01_ml.md` |
-| 2 | **Георгадзе Роман** | **Video Processing Engineer** | `feature/video-processing` | `video/` | `reports/02_video.md` |
-| 3 | **Сурин Ярослав** | **Backend Developer** | `feature/backend-api` | `backend/` | `reports/03_backend.md` |
-| 4 | **Константинов Артемий** | **Frontend Developer** | `feature/frontend-dashboard` | `frontend/` | `reports/04_frontend.md` |
-| 5 | **Андреев Александр** | **DevOps & QA** | `feature/devops-testing` | `tests/`, `requirements.txt`, `.env.example`, `run.bat`/`start.ps1` | `reports/05_devops_qa.md` |
-| 0 | **Поташов Павел** | **Лидер (Сборка проекта)** | `feature/integration` | Стыковка модулей, общий фикс багов, финальный прогон | `reports/00_FINAL_SUMMARY.md` |
-| 6 | **Кузьмина Анна** | **Аналитика и паспорт проекта** | `feature/presentation-context` | `reports/pres_part1_context.md` | `reports/pres_part1_context.md` |
-| 7 | **Кожина Анастасия** | **Аналитика результатов и описание системы** | `feature/presentation-tech` | `reports/pres_part2_tech.md` | `reports/pres_part2_tech.md` |
-| 8 | **Кислицына Екатерина** | **Дизайн итоговой презентации** | `feature/presentation-final` | `presentation/` | `presentation/` |
+| № | Роль | Ветка Git | Зона редактирования | Итоговый отчёт |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | **ML Engineer (Тимлид)** | `feature/ml-counter` | `ml/` | `reports/01_ml.md` |
+| 2 | **Video Processing Engineer** | `feature/video-processing` | `video/` | `reports/02_video.md` |
+| 3 | **Backend Developer** | `feature/backend-api` | `backend/` | `reports/03_backend.md` |
+| 4 | **Frontend Developer** | `feature/frontend-dashboard` | `frontend/` | `reports/04_frontend.md` |
+| 5 | **DevOps & QA** | `feature/devops-testing` | `tests/`, `requirements.txt`, `.env.example`, `run.bat`/`start.ps1` | `reports/05_devops_qa.md` |
+| 0 | **Тимлид (Сборка проекта)** | `feature/integration` | Стыковка модулей, общий фикс багов, финальный прогон | `reports/00_FINAL_SUMMARY.md` |
+| 6 | **Девушка №1 (Аналитика и паспорт проекта)** | `feature/presentation-context` | `reports/pres_part1_context.md` | `reports/pres_part1_context.md` |
+| 7 | **Девушка №2 (Аналитика результатов и описание системы)** | `feature/presentation-tech` | `reports/pres_part2_tech.md` | `reports/pres_part2_tech.md` |
+| 8 | **Девушка №3 (Дизайн итоговой презентации)** | `feature/presentation-final` | `presentation/` | `presentation/` |
 
 ---
 
