@@ -13,65 +13,72 @@
 
 ---
 
-## Роли, ветки и промпты для команды
+## Команда, ветки и промпты
 
-### Программисты (5 веток)
-| Роль | Ветка (уже создана) | Твоя папка | Промпт для ИИ | Итоговый отчёт |
+### Программисты (реализация до субботы)
+| Участник | Роль | Ветка (уже создана) | Твоя папка | Промпт для ИИ | Итоговый отчёт |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Поташов Павел** | **Тимлид / ML Engineer** | `feature/ml-counter` | `ml/` | [`prompts/01_ml_counter.md`](./prompts/01_ml_counter.md) | `reports/01_ml.md` |
+| **Георгадзе Роман** | **Video Processing** | `feature/video-processing` | `video/` | [`prompts/02_video_processing.md`](./prompts/02_video_processing.md) | `reports/02_video.md` |
+| **Сурин Ярослав** | **Backend Developer** | `feature/backend-api` | `backend/` | [`prompts/03_backend_api.md`](./prompts/03_backend_api.md) | `reports/03_backend.md` |
+| **Константинов Артемий** | **Frontend Developer** | `feature/frontend-dashboard` | `frontend/` | [`prompts/04_frontend_dashboard.md`](./prompts/04_frontend_dashboard.md) | `reports/04_frontend.md` |
+| **Андреев Александр** | **DevOps & QA** | `feature/devops-testing` | `tests/`, скрипты, `requirements.txt` | [`prompts/05_devops_qa.md`](./prompts/05_devops_qa.md) | `reports/05_devops_qa.md` |
+
+### Финальная сборка прототипа (после PR от программистов)
+| Участник | Этап | Ветка (уже создана) | Промпт для ИИ | Итоговый отчёт |
 | :--- | :--- | :--- | :--- | :--- |
-| **ML Engineer (Лидер)** | `feature/ml-counter` | `ml/` | [`prompts/01_ml_counter.md`](./prompts/01_ml_counter.md) | `reports/01_ml.md` |
-| **Video Processing** | `feature/video-processing` | `video/` | [`prompts/02_video_processing.md`](./prompts/02_video_processing.md) | `reports/02_video.md` |
-| **Backend Developer** | `feature/backend-api` | `backend/` | [`prompts/03_backend_api.md`](./prompts/03_backend_api.md) | `reports/03_backend.md` |
-| **Frontend Developer** | `feature/frontend-dashboard` | `frontend/` | [`prompts/04_frontend_dashboard.md`](./prompts/04_frontend_dashboard.md) | `reports/04_frontend.md` |
-| **DevOps & QA** | `feature/devops-testing` | `tests/`, скрипты, `requirements.txt` | [`prompts/05_devops_qa.md`](./prompts/05_devops_qa.md) | `reports/05_devops_qa.md` |
+| **Поташов Павел** | **Сборка и замеры точности на 3+ видео** | `feature/integration` | [`prompts/00_lead_integration.md`](./prompts/00_lead_integration.md) | `reports/00_FINAL_SUMMARY.md` |
 
-### Сборка проекта (Лидер, после PR от программистов)
-| Этап | Ветка (уже создана) | Промпт для ИИ | Итоговый отчёт |
-| :--- | :--- | :--- | :--- |
-| **Интеграция и замеры на 3+ видео** | `feature/integration` | [`prompts/00_lead_integration.md`](./prompts/00_lead_integration.md) | `reports/00_FINAL_SUMMARY.md` |
-
-### Девушки (только итоговая презентация и речь, без отдельной документации)
-| Роль | Ветка (уже создана) | Когда начинать | Промпт для ИИ | Результат |
-| :--- | :--- | :--- | :--- | :--- |
-| **№1: Проблема, аналоги, ЦА** | `feature/presentation-context` | **Сразу** | [`prompts/06_girls_analytics_context.md`](./prompts/06_girls_analytics_context.md) | `reports/pres_part1_context.md` |
-| **№2: Техническая выжимка** | `feature/presentation-tech` | После `00_FINAL_SUMMARY.md` | [`prompts/07_girls_tech_digest.md`](./prompts/07_girls_tech_digest.md) | `reports/pres_part2_tech.md` |
-| **№3: Сборщик презентации** | `feature/presentation-final` | После №1 и №2 | [`prompts/08_girls_presentation_builder.md`](./prompts/08_girls_presentation_builder.md) | `presentation/` |
+### Паспорт проекта и презентация (девушки)
+| Участник | Роль | Ветка (уже создана) | Когда начинать | Промпт для ИИ | Результат |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Кузьмина Анна** | **Аналитика и паспорт проекта (актуальность, проблема, цели, аналоги)** | `feature/presentation-context` | **Сразу** | [`prompts/06_girls_analytics_context.md`](./prompts/06_girls_analytics_context.md) | `reports/pres_part1_context.md` |
+| **Кожина Анастасия** | **Аналитика результатов и описание системы** | `feature/presentation-tech` | После `00_FINAL_SUMMARY.md` | [`prompts/07_girls_tech_digest.md`](./prompts/07_girls_tech_digest.md) | `reports/pres_part2_tech.md` |
+| **Кислицына Екатерина** | **Дизайн и сборка итоговой презентации** | `feature/presentation-final` | После Анны и Анастасии | [`prompts/08_girls_presentation_builder.md`](./prompts/08_girls_presentation_builder.md) | `presentation/` |
 
 ---
 
-## Пошаговая инструкция старта для участника
+## Инструкция для парней: как запустить ИИ-агента, задать рамки и работать со скиллами `/`
 
-### Шаг 1. Склонируй репозиторий и переключись на свою ветку
+### 1. Склонируй репозиторий и открой именно папку `visitor-counter`
 ```bash
 git clone https://github.com/ssensager/visitor-counter.git
 cd visitor-counter
 git fetch origin
 git checkout <твоя-ветка>
 ```
-*(Если настроен SSH, можно клонировать через `git@github.com:ssensager/visitor-counter.git`.)*
+*(Если настроен SSH: `git clone git@github.com:ssensager/visitor-counter.git`.)*
 
-Проверь, что ты действительно не в `main`:
-```bash
-git branch --show-current
-```
+> **ВАЖНО для работы скиллов через `/`:**  
+> В своём редакторе / IDE (Antigravity, Cursor, VS Code и др.) открой через **File -> Open Folder** именно корневую папку **`visitor-counter`** (где лежат `.agents/` и `AGENTS.md`), а не родительскую папку. Только тогда агент автоматически подхватит проектные правила `AGENTS.md` и слэш-команды из `.agents/skills/`.
 
-### Шаг 2. Запусти своего ИИ-агента с готовым промптом
-1. Открой свой файл в [`prompts/`](./prompts/README.md) и скопируй текст промпта целиком в чат с AI-агентом.
-2. По ходу работы пользуйся тремя командами в чате (они подключены как скиллы в `.agents/skills/` и прописаны в [`AGENTS.md`](./AGENTS.md)):
-   - **`план`** — перед началом работы: ИИ проверит ветку, контракты в `PROJECT_SPEC.md` и запишет план в `reports/_wip_<role>.md`.
-   - **`чекпоинт`** — после каждого важного шага или перед паузой: ИИ сохранит прогресс, запуски и ошибки, чтобы контекст не потерялся.
-   - **`финал`** — когда модуль готов и протестирован: ИИ перепроверит границы папок, тесты и соберёт чистовой отчёт `reports/<nn>_<role>.md`.
+### 2. Как задать ИИ жёсткие рамки, чтобы он делал ТОЛЬКО твою часть
+Не нужно объяснять задачу своими словами с нуля:
+1. Открой свой файл из таблицы выше в папке [`prompts/`](./prompts/README.md).
+2. Скопируй весь блок текста из него и отправь **первым сообщением** в чат своему ИИ-агенту.
+3. В этот промпт и в [`AGENTS.md`](./AGENTS.md) уже вшиты жёсткие рамки:
+   - агент обязан сначала прочитать [`PROJECT_SPEC.md`](./PROJECT_SPEC.md) и [`shared/contracts.py`](./shared/contracts.py);
+   - ему **разрешено менять только твою папку** (`ml/`, `video/`, `backend/`, `frontend/` или `tests/`) и твой отчёт в `reports/`;
+   - ему **запрещено** трогать чужие папки, менять общие контракты и коммитить в `main`.
 
-### Шаг 3. Сдай свою ветку через Pull Request
-1. Убедись, что не трогал чужие папки и не залил видео (`.mp4`/`.avi`) или веса (`.pt`).
-2. Запушь свою ветку:
+### 3. Как пользоваться скиллами через `/` по ходу разработки
+В репозитории в `.agents/skills/` лежат 3 скилла. В чате с агентом набирай `/` и выбирай нужный скилл (или просто пиши короткое русское слово — работает и так, и так):
+
+| Слэш-команда (`/`) | Короткое слово в чат | Когда нажимать и что делает ИИ |
+| :--- | :--- | :--- |
+| **`/session-plan`** | **`план`** | **На старте задачи.** Агент проверяет, что ты в своей ветке `feature/...` (не в `main`), сверяет контракты из `PROJECT_SPEC.md` и сохраняет пошаговый план в `reports/_wip_<role>.md`. |
+| **`/session-checkpoint`** | **`чекпоинт`** | **После каждого крупного шага или перед закрытием чата.** Агент проверяет, что не задеты чужие файлы, и записывает в `reports/_wip_<role>.md`, что уже сделано, какие тесты запускались и что делать дальше. |
+| **`/finalize-report`** | **`финал`** | **Когда код готов и протестирован.** Агент сверяет `git diff` с `main`, прогоняет финальные тесты, формирует чистовой отчёт `reports/0X_<role>.md` (по которому девочки потом соберут паспорт и презу) и даёт команды для пуша. |
+
+### 4. Как сдать готовую работу
+1. После команды `/finalize-report` (`финал`) проверь, что ты в своей ветке (`git branch --show-current`).
+2. Закоммить и запушь свою ветку:
    ```bash
    git add .
-   git commit -m "feat(<твоя-роль>): краткое описание сделанного"
+   git commit -m "feat(<твоя-роль>): краткое описание"
    git push -u origin <твоя-ветка>
    ```
-3. Открой репозиторий на GitHub, нажми **Compare & pull request**, проверь что слияние идёт из `<твоя-ветка>` в `main`, и создай Pull Request.
-
-> **Памятка для девушек:** если неудобно работать через Git-ветки, можно просто взять материалы из `main` (и позже из `reports/`), прогнать промпт в любом ИИ-чате и скинуть готовые файлы руководителю. Отдельная бумажная документация не нужна — готовим только презентацию и текст к защите.
+3. Зайди на страницу репозитория на GitHub, нажми кнопку **Compare & pull request** (из твоей ветки `feature/...` в `main`) и создай Pull Request.
 
 ---
 
@@ -82,20 +89,20 @@ git branch --show-current
 
 ```text
 visitor-counter/
-├── .agents/skills/        # Скиллы ИИ-агентов (план, чекпоинт, финал)
-├── AGENTS.md              # Единые правила для всех ИИ-агентов
+├── .agents/skills/        # Скиллы ИИ-агентов (/session-plan, /session-checkpoint, /finalize-report)
+├── AGENTS.md              # Автоматические правила и границы папок для ИИ-агентов
 ├── PROJECT_SPEC.md        # Главная спецификация, архитектура и контракты
-├── prompts/               # Готовые промпты для каждого участника команды
+├── prompts/               # Готовые промпты для каждого из 8 участников команды
 ├── shared/                # Единые контракты типов и mock-заглушка для тестов
-├── ml/                    # [ML] YOLOv8n + ByteTrack + виртуальная линия
-├── video/                 # [Video] OpenCV-источник и цикл обработки кадров
-├── backend/               # [Backend] FastAPI, загрузка видео, MJPEG, WebSocket
-├── frontend/              # [Frontend] Веб-дашборд Visitor Analytics
-├── tests/                 # [DevOps / QA] Автотесты и замер точности на видео
+├── ml/                    # [Поташов Павел] YOLOv8n + ByteTrack + виртуальная линия
+├── video/                 # [Георгадзе Роман] OpenCV-источник и цикл обработки кадров
+├── backend/               # [Сурин Ярослав] FastAPI, загрузка видео, MJPEG, WebSocket
+├── frontend/              # [Константинов Артемий] Веб-дашборд Visitor Analytics
+├── tests/                 # [Андреев Александр] Автотесты, запуск и замер точности
 ├── models/                # Локальные веса моделей (.pt игнорируются в Git)
 ├── storage/               # Загруженные и тестовые видео (медиа игнорируются в Git)
 ├── reports/               # Итоговые Markdown-отчёты модулей и скриншоты
-└── presentation/          # Материалы итоговой презентации
+└── presentation/          # Материалы паспорта проекта и итоговой презентации
 ```
 
 ## Целевой запуск (после сборки модулей)

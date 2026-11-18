@@ -15,16 +15,16 @@
      git checkout <целевая-ветка>
      ```
      *(Если ветки почему-то нет на `origin` — создай её от актуальной `main`: `git checkout -b <целевая-ветка> main`.)*
-3. Сверь свою ветку и разрешённую папку:
-   - `feature/ml-counter` -> `ml/` (отчёт `reports/01_ml.md`)
-   - `feature/video-processing` -> `video/` (отчёт `reports/02_video.md`)
-   - `feature/backend-api` -> `backend/` (отчёт `reports/03_backend.md`)
-   - `feature/frontend-dashboard` -> `frontend/` (отчёт `reports/04_frontend.md`)
-   - `feature/devops-testing` -> `tests/`, `requirements.txt`, `.env.example`, `run.bat`/`start.ps1` (отчёт `reports/05_devops_qa.md`)
-   - `feature/integration` -> финальная сборка лидером (отчёт `reports/00_FINAL_SUMMARY.md`)
-   - `feature/presentation-context` -> `reports/pres_part1_context.md`
-   - `feature/presentation-tech` -> `reports/pres_part2_tech.md`
-   - `feature/presentation-final` -> `presentation/`
+3. Сверь свою ветку, ответственного и разрешённую папку:
+   - `feature/ml-counter` (Поташов Павел) -> `ml/` (отчёт `reports/01_ml.md`)
+   - `feature/video-processing` (Георгадзе Роман) -> `video/` (отчёт `reports/02_video.md`)
+   - `feature/backend-api` (Сурин Ярослав) -> `backend/` (отчёт `reports/03_backend.md`)
+   - `feature/frontend-dashboard` (Константинов Артемий) -> `frontend/` (отчёт `reports/04_frontend.md`)
+   - `feature/devops-testing` (Андреев Александр) -> `tests/`, `requirements.txt`, `.env.example`, `run.bat`/`start.ps1` (отчёт `reports/05_devops_qa.md`)
+   - `feature/integration` (Поташов Павел) -> финальная сборка лидером (отчёт `reports/00_FINAL_SUMMARY.md`)
+   - `feature/presentation-context` (Кузьмина Анна) -> `reports/pres_part1_context.md`
+   - `feature/presentation-tech` (Кожина Анастасия) -> `reports/pres_part2_tech.md`
+   - `feature/presentation-final` (Кислицына Екатерина) -> `presentation/`
 
 ---
 
@@ -38,14 +38,14 @@
 
 ---
 
-## 3. Протокол ведения контекста и отчётности (Скиллы и команды)
+## 3. Протокол ведения контекста и отчётности (Скиллы через `/` и текстовые команды)
 
-В репозитории в `.agents/skills/` настроены 3 рабочих скилла. Они работают и при автоматическом вызове, и по **простым текстовым командам в чате** (или `/skill` в средах, которые это поддерживают):
+В репозитории в `.agents/skills/` настроены 3 рабочих скилла. Они вызываются через меню `/` в чате (`/session-plan`, `/session-checkpoint`, `/finalize-report`), автоматически агентом или по **простым текстовым командам**:
 
-| Команда в чате | Скилл | Когда вызывать и что делать |
-| :--- | :--- | :--- |
-| **`план`** | `session-plan` | В начале задачи. Проверить переключение с `main` на ветку `feature/...`, сверить `PROJECT_SPEC.md` и границы папки, создать `reports/_wip_<role>.md` со стартовым планом. |
-| **`чекпоинт`** | `session-checkpoint` | После каждого крупного шага, перед паузой или при переполнении контекста. Проверить ветку, обновить `reports/_wip_<role>.md`: что сделано, что проверено, какие команды запускались, какие ошибки/блокеры возникли, что делать дальше. |
-| **`финал`** | `finalize-report` | Когда модуль готов и протестирован. Проверить ветку (не `main`) и `git diff --name-only origin/main`, прогнать тесты, сформировать чистовой отчёт `reports/<nn>_<role>.md` по шаблону `reports/TEMPLATE_REPORT.md` (удалив `_wip_`), запушить `feature/...` и подготовить Pull Request в `main`. |
+| Слэш-команда (`/`) | Короткое слово в чат | Скилл | Когда вызывать и что делать |
+| :--- | :--- | :--- | :--- |
+| **`/session-plan`** | **`план`** | `session-plan` | В начале задачи. Проверить переключение с `main` на ветку `feature/...`, сверить `PROJECT_SPEC.md` и границы папки, создать `reports/_wip_<role>.md` со стартовым планом. |
+| **`/session-checkpoint`** | **`чекпоинт`** | `session-checkpoint` | После каждого крупного шага, перед паузой или при переполнении контекста. Проверить ветку, обновить `reports/_wip_<role>.md`: что сделано, что проверено, какие команды запускались, какие ошибки/блокеры возникли, что делать дальше. |
+| **`/finalize-report`** | **`финал`** | `finalize-report` | Когда модуль готов и протестирован. Проверить ветку (не `main`) и `git diff --name-only origin/main`, прогнать тесты, сформировать чистовой отчёт `reports/<nn>_<role>.md` по шаблону `reports/TEMPLATE_REPORT.md` (удалив `_wip_`), запушить `feature/...` и подготовить Pull Request в `main`. |
 
 **Правило:** даже если пользователь явно не написал слово `чекпоинт`, при завершении крупного этапа обновляй `reports/_wip_<role>.md`, чтобы контекст не потерялся, а финальный отчёт собрался быстро и без пробелов.
