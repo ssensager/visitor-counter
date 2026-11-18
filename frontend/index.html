@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Visitor Analytics — Минималистичный дашборд системы подсчёта посетителей">
+  <title>Visitor Analytics — Система подсчёта посетителей</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Доступный диктор статусов для экранных дикторов -->
+  <div id="sr-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Верхняя панель -->
+  <header class="top-nav">
+    <div class="nav-brand">
+      <span class="brand-name">Visitor Analytics</span>
+      <span class="brand-divider">/</span>
+      <span class="brand-tag">Подсчёт посетителей на компьютерном зрении</span>
+    </div>
+
+    <!-- Индикаторы состояния системы -->
+    <div class="nav-indicators">
+      <div class="status-pill" role="region" aria-label="Статус задачи">
+        <span class="status-label">Статус:</span>
+        <div id="job-status-badge" class="badge badge-idle">
+          <span class="badge-dot" aria-hidden="true"></span>
+          <span id="job-status-text">Ожидание</span>
+        </div>
+      </div>
+
+      <div class="status-pill" role="status" aria-label="Состояние сервера">
+        <div id="server-status-dot" class="health-dot health-checking" aria-hidden="true"></div>
+        <span id="server-status-text" class="status-label">Сервер: проверка</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Сообщение об ошибке (баннер) -->
+  <aside id="alert-banner" class="alert-banner hidden" role="alert" aria-live="assertive">
+    <span id="alert-text">Описание ошибки</span>
+    <button id="alert-close-btn" class="alert-close" type="button" aria-label="Закрыть">&times;</button>
+  </aside>
+
+  <!-- Основной контент дашборда -->
+  <main class="dashboard-container">
+
+    <!-- Сетка показателей -->
+    <section class="metrics-grid" aria-label="Показатели аналитики">
+
+      <!-- Карточка 1: Вошло -->
+      <article class="metric-card">
+        <span class="metric-title">Вошло</span>
+        <output class="metric-number in-number" id="val-entered" aria-live="polite">0</output>
+        <span class="metric-subtext">Посетителей за сессию</span>
+      </article>
+
+      <!-- Карточка 2: Вышло -->
+      <article class="metric-card">
+        <span class="metric-title">Вышло</span>
+        <output class="metric-number out-number" id="val-exited" aria-live="polite">0</output>
+        <span class="metric-subtext">Покинули зону контроля</span>
+      </article>
+
+      <!-- Карточка 3: Сейчас внутри -->
+      <article class="metric-card">
+        <span class="metric-title">Сейчас внутри</span>
+        <output class="metric-number cur-number" id="val-current" aria-live="polite">0</output>
+        <span class="metric-subtext">Текущий баланс в помещении</span>
+      </article>
+
+      <!-- Карточка 4: FPS -->
+      <article class="metric-card">
+        <span class="metric-title">Скорость обработки</span>
+        <div class="metric-unit-row">
+          <output class="metric-number" id="val-fps" aria-live="polite">0.0</output>
+          <span class="unit-text">FPS</span>
+        </div>
+        <span class="metric-subtext">Кадров в секунду</span>
+      </article>
+
+      <!-- Карточка 5: Прогресс -->
+      <article class="metric-card">
+        <div class="progress-header">
+          <span class="metric-title">Прогресс видео</span>
+          <output class="progress-label" id="val-progress-text" aria-live="polite">0%</output>
+        </div>
+        <div class="progress-bar-slot">
+          <progress id="native-progress" class="modern-progress" value="0" max="100" aria-label="Прогресс обработки видео"></progress>
+        </div>
+        <span class="metric-subtext">Обработка кадров записи</span>
+      </article>
+    </section>
+
+    <!-- Основная рабочая область -->
+    <div class="main-workspace">
+
+      <!-- Видеопоток -->
+      <section class="video-section" aria-labelledby="video-title">
+        <header class="section-header">
+          <div class="section-title-wrap">
+            <h2 id="video-title">Видеопоток</h2>
+            <span id="stream-info" class="section-subtitle">Ожидание запуска</span>
+          </div>
+          <div class="stream-status-group">
+            <span id="live-indicator" class="live-pill hidden" role="status">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span>Прямой эфир</span>
+            </span>
+            <span id="line-indicator" class="neutral-pill">Линия: по центру</span>
+          </div>
+        </header>
+
+        <div class="video-container" id="video-viewport">
+          <!-- Пустое состояние -->
+          <div id="video-empty-state" class="video-empty-state">
+            <h3>Видеозапись не выбрана</h3>
+            <p id="empty-state-hint">Загрузите файл в формате MP4 или AVI, чтобы начать детекцию и подсчёт</p>
+          </div>
+
+          <!-- Поток MJPEG -->
+          <img id="stream-image" class="stream-image hidden" alt="Видеопоток детекции">
+
+          <!-- Canvas виртуальной линии -->
+          <canvas id="line-canvas" class="line-canvas" aria-label="Холст виртуальной линии"></canvas>
+
+          <!-- Оверлей завершения -->
+          <div id="video-completed-overlay" class="video-overlay hidden" role="status">
+            <div class="completed-card">
+              <h3>Обработка завершена</h3>
+              <p>Видеозапись успешно обработана до последнего кадра</p>
+            </div>
+          </div>
+        </div>
+
+        <footer class="video-footer">
+          <div class="line-controls">
+            <span class="control-label">Виртуальная линия:</span>
+            <button id="btn-reset-line" class="btn btn-sm btn-ghost" type="button">
+              По центру
+            </button>
+            <span class="line-hint">Перетаскивайте точки на видео для изменения положения</span>
+          </div>
+          <div class="job-id-slot">
+            <span id="job-id-display" class="job-id-pill">Задача: —</span>
+          </div>
+        </footer>
+      </section>
+
+      <!-- Панель управления -->
+      <aside class="sidebar-section" aria-label="Панель управления">
+
+        <!-- Загрузка видео -->
+        <section class="card" aria-labelledby="upload-card-title">
+          <header class="card-header">
+            <h3 id="upload-card-title">Загрузка видео</h3>
+          </header>
+
+          <div id="drop-zone" class="drop-zone" tabindex="0" role="button" aria-label="Перетащите видеофайл">
+            <input type="file" id="video-file-input" accept=".mp4,.avi" class="file-input-hidden" aria-label="Выбрать видеофайл (.mp4 или .avi)">
+            <div class="drop-content">
+              <p class="drop-primary-text">Перетащите видеофайл сюда</p>
+              <p class="drop-secondary-text">или <span class="browse-link">выберите с диска</span></p>
+              <span class="drop-badge">MP4, AVI</span>
+            </div>
+          </div>
+
+          <!-- Выбранный файл -->
+          <div id="file-info-box" class="file-info-box hidden">
+            <div class="file-details">
+              <span id="selected-file-name" class="file-name">filename.mp4</span>
+              <span id="selected-file-size" class="file-size">0.0 MB</span>
+            </div>
+            <button id="btn-remove-file" class="btn-clear" type="button" aria-label="Отменить выбор файла">&times;</button>
+          </div>
+
+          <button id="btn-upload" class="btn btn-secondary btn-block" type="button" disabled>
+            <span class="btn-text">Загрузить файл</span>
+            <span class="btn-spinner hidden" aria-hidden="true"></span>
+          </button>
+        </section>
+
+        <!-- Управление анализом -->
+        <section class="card" aria-labelledby="actions-title">
+          <header class="card-header">
+            <h3 id="actions-title">Управление анализом</h3>
+          </header>
+
+          <div class="action-buttons">
+            <button id="btn-start" class="btn btn-primary btn-block" type="button" disabled>
+              <span>Запустить анализ</span>
+            </button>
+            <button id="btn-stop" class="btn btn-danger-outline btn-block" type="button" disabled>
+              <span>Остановить</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- История событий -->
+        <section class="card log-card" aria-labelledby="log-title">
+          <header class="card-header log-header">
+            <h3 id="log-title">История событий</h3>
+            <button id="btn-clear-log" class="btn-link" type="button">Очистить</button>
+          </header>
+          <div id="activity-log" class="activity-log" role="log" aria-live="polite">
+            <div class="log-entry log-info">
+              <time class="log-time">00:00:00</time>
+              <span class="log-msg">Система готова к работе</span>
+            </div>
+          </div>
+        </section>
+
+      </aside>
+    </div>
+  </main>
+
+  <!-- Диалог сообщений -->
+  <dialog id="error-dialog" class="modern-dialog">
+    <div class="dialog-box">
+      <header class="dialog-header">
+        <h3>Сообщение системы</h3>
+        <button id="dialog-close-btn" class="btn-clear" type="button" aria-label="Закрыть">&times;</button>
+      </header>
+      <div class="dialog-body">
+        <p id="dialog-error-msg">Описание ошибки</p>
+      </div>
+      <footer class="dialog-footer">
+        <button id="dialog-ok-btn" class="btn btn-secondary" type="button">Понятно</button>
+      </footer>
+    </div>
+  </dialog>
+
+  <!-- Скрипты -->
+  <script src="js/dashboard.js"></script>
+  <script src="js/video.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
