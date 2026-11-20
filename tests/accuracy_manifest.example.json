@@ -1,0 +1,27 @@
+{
+  "_comment": "Заготовка манифеста для tests/benchmark_accuracy.py. Скопируйте файл, положите три видео в storage/test_videos/ и впишите ФАКТИЧЕСКИЕ числа вошедших/вышедших, посчитанные вручную по видео. Ноль или null в actual_in/actual_out означает 'не заполнено': скрипт честно сообщит об этом и не будет подставлять выдуманные цифры.",
+  "_target": "Ориентир проекта: ошибка <= 5% по каждому видео (PROJECT_SPEC.md, раздел 5).",
+  "videos": [
+    {
+      "name": "01_simple",
+      "complexity": "простое",
+      "path": "storage/test_videos/01_simple.mp4",
+      "actual_in": null,
+      "actual_out": null
+    },
+    {
+      "name": "02_medium",
+      "complexity": "среднее",
+      "path": "storage/test_videos/02_medium.mp4",
+      "actual_in": null,
+      "actual_out": null
+    },
+    {
+      "name": "03_hard",
+      "complexity": "сложное",
+      "path": "storage/test_videos/03_hard.mp4",
+      "actual_in": null,
+      "actual_out": null
+    }
+  ]
+}

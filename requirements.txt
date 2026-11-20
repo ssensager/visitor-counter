@@ -1,0 +1,50 @@
+# =============================================================================
+# visitor-counter: Python-зависимости MVP
+# Проверено на Python 3.13.1 (Windows 10/11 x64). Минимальная версия: Python 3.11
+# (её требует torch 2.15; для Python 3.9-3.10 pip подберёт более старые сборки).
+#
+# Установка:
+#     python -m venv .venv
+#     .venv\Scripts\python.exe -m pip install --upgrade pip
+#     .venv\Scripts\python.exe -m pip install -r requirements.txt
+# =============================================================================
+#
+# ВАЖНО: PyTorch с поддержкой CUDA на Windows ставится ДО этого файла, иначе
+# `ultralytics` подтянет с PyPI CPU-сборку torch и GPU не будет использоваться.
+#
+#   CUDA 13.0 (драйвер NVIDIA 580+, рекомендуется для новых карт):
+#     pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
+#
+#   CUDA 12.6 (драйвер NVIDIA 560+, если 13.0 не подходит):
+#     pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
+#
+#   Проверка после установки:
+#     python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
+#
+# Если GPU нет - команду выше пропускаем, `pip install -r requirements.txt`
+# поставит CPU-сборку torch, и приложение автоматически уйдёт в fallback на CPU.
+# =============================================================================
+
+# --- Компьютерное зрение и ML -------------------------------------------------
+# YOLOv8n + ByteTrack. Тянет за собой torch, torchvision, numpy, matplotlib, pillow.
+# NVIDIA GPU: 8.4.x стабильно работает с torch 2.14/2.15 и opencv 4.14.
+ultralytics==8.4.216
+# Сознательно 4.14, а не 5.x: ultralytics 8.4 проверен на ветке OpenCV 4.x.
+opencv-python==4.14.0.94
+# opencv-python 4.14 требует numpy>=2 для Python >= 3.9; точная версия numpy
+# зависит от версии Python, поэтому здесь диапазон, а не жёсткий пин.
+numpy>=2.0,<3
+
+# --- Backend (FastAPI) --------------------------------------------------------
+# FastAPI 0.165 / pydantic 2.14 / starlette 1.10 - совместимая тройка.
+fastapi==0.165.0
+# [standard] добавляет uvloop-аналоги, httptools, websockets и watchfiles (WebSocket-статистика).
+uvicorn[standard]==0.54.0
+# Обязателен для multipart/form-data при загрузке видео (поле `file`).
+python-multipart==0.0.34
+pydantic==2.14.4
+
+# --- Тесты и QA ---------------------------------------------------------------
+# pytest 9.x + httpx 0.28.x: httpx нужен TestClient из Starlette/FastAPI.
+pytest==9.2.0
+httpx==0.28.1
